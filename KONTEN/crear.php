@@ -8,7 +8,7 @@ include 'funciones.php';
 if (isset($_POST['submit'])) {
   $resultado = [
     'error' => false,
-    'mensaje' => 'El cliente ' . $_POST['nombre'] . ' ha sido agregado con éxito' 
+    'mensaje' => 'El cliente ' . $_POST['nombre'] . ' ha sido creado con éxito' 
   ];
   $config = include 'config.php';
 
@@ -42,34 +42,20 @@ if (isset($_POST['submit'])) {
 
       <div id="contenedor">
           <div id="central">
-          <?php
-            if (isset($resultado)) {
-              ?>
-              <div class="container mt-3">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="alert alert-<?= $resultado['error'] ? 'danger' : 'success' ?>" role="alert">
-                      <?= $resultado['mensaje'] ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <?php
-            }
-          ?>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-              <div class="container-fluid">
-                <a class="navbar-brand">KONTEN</a>
-                  <div class="text-center text-muted">
+               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <div class="container-fluid">
+                    <a class="navbar-brand">KONTEN</a>
+                      <div class="text-center text-muted">
                         <?php
                         echo $_SESSION["nombre"];
                         ?>
-                        </div>
-                    </div>
-              </nav>
+                      </div>
+                  </div>
+                </nav>
               <div id="login" class="contenedor">
                 <div class="titulo_logo">
-                           
+
+
                               <div class="container">
                                   <div class="row">
                                       <div class="col-md-12">
@@ -106,6 +92,23 @@ if (isset($_POST['submit'])) {
                                                   <label for="direccion">Direccion</label>
                                                   <input type="text" name="direccion" id="direccion" class="form-control">
                                                   </div>
+
+                                                  <?php
+                                                    if (isset($resultado)) {
+                                                      ?>
+                                                      <div class="container mt-3 text-center">
+                                                        <div class="row">
+                                                          <div class="col-md-12">
+                                                            <div class="alert alert-<?= $resultado['error'] ? 'danger' : 'success' ?>" role="alert">
+                                                              <?= $resultado['mensaje'] ?>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <?php
+                                                    }
+                                                  ?>
+
                                                   <div class="d-grid gap-2 mt-4">
                                                   <input type="submit" name="submit" class="btn btn-primary " value="Enviar">
                                                   <a class="btn btn-secondary" href="leer.php">Regresar al inicio</a>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proyecto en PHP</title>
+</head>
+<body>
+    <img src="imagen.jpg" alt="Imagen" id="miImagen" onclick="mostrarFormulario()">
+    
+    <div id="formulario" style="display: none;">
+        <form action="accion.php" method="post">
+            <input type="hidden" name="accion" id="accion">
+            <input type="text" name="valor" placeholder="Ingrese el valor">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("formulario").style.display = "block";
+        }
+
+        function setAccion(accion) {
+            document.getElementById("accion").value = accion;
+        }
+    </script>
+</body>
+</html>

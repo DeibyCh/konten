@@ -32,14 +32,17 @@ include 'funciones.php';
 
           
         <form method="post">
-            <div class="mb-3 text-center mt-4" >
+            <div class="mb-2 text-center mt-4" >
             <label for="usuario" class="form-label">Usuario</label>
             <input type="text" class="form-control text-center" id="usuario" name="usuario">
             
           </div>
-          <div class="mb-3 text-center">
+          <div class="mb-2 text-center">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control text-center" id="password" name="password">
+          </div>
+          <div class="container text-center mb-3" >
+            <a href="#" class="link-info">Olvidaste tu contraseña?</a>
           </div>
           <div class="d-grid gap-2">
                 <input name="enviar" type="submit" name="submit" class="btn btn-primary " >

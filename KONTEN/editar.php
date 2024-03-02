@@ -145,8 +145,18 @@ if ($resultado['error']) {
                                   <label for="telefono">Telefono</label>
                                   <input type="tel" name="telefono" id="telefono" value="<?= escapar($cliente['telefono']) ?>" class="form-control">
                                 </div>
-                                <div class="d-grid gap-2">
-                                  <hr>
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="d-grid gap-2 mt-4">
                                   <input type="submit" name="submit" class="btn btn-primary" value="Actualizar">
                                   <a class="btn btn-secondary" href="leer.php">Regresar al inicio</a>
                                 </div>
