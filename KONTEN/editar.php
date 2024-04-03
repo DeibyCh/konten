@@ -26,7 +26,8 @@ if (isset($_POST['submit'])) {
       "nombres"    => $_POST['nombres'],
       "apellidos"  => $_POST['apellidos'],
       "direccion"  => $_POST['direccion'],
-      "telefono"   => $_POST['telefono']
+      "telefono"   => $_POST['telefono'],
+
     ];
     
     $consultaSQL = "UPDATE clientes SET
@@ -144,6 +145,10 @@ if ($resultado['error']) {
                                 <div class="form-group">
                                   <label for="telefono">Telefono</label>
                                   <input type="tel" name="telefono" id="telefono" value="<?= escapar($cliente['telefono']) ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <label for="saldo">Saldo</label>
+                                  <input type="numb" name="saldo" id="saldo" value="<?= escapar($cliente['saldo']) ?>" class="form-control" value="Disabled readonly input"  disabled readonly>
                                 </div>
                                 <div class="container">
                                   <div class="row">

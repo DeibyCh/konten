@@ -14,7 +14,7 @@ include 'funciones.php';
                     </div>
         </nav>
     <div id="login" class="contenedor">
-      <div class="titulo_logo">           
+      <div class="titulo">           
             <div class="container text-center" >
             <img src="img/LOGO KONTEN.png" width="100%" alt="Logo">
             </div>
