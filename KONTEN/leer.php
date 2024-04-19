@@ -32,9 +32,13 @@ try {
   }
   
   //Mostrar cedula y saldo
-  $titulo1 = isset($_POST['cedula']) ? 'Cliente: ' . $_POST['cedula'] . '' : '';
-  $titulo2 = isset($_POST['cedula']) ? 'Saldo: ' . $clientes[0]["saldo"]. '' : '';
-
+  $titulo1 = '';
+  $titulo2 = '';
+  if (isset($clientes[0])) {
+      $titulo1 = 'Cliente: ' . $_POST['cedula'];
+      $titulo2 = 'Saldo: ' . $clientes[0]["saldo"];
+  }
+  
   ?>
   
   <?php include "templates/header.php"; ?>
