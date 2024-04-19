@@ -16,20 +16,25 @@ try {
   
     if (isset($_POST['cedula'])) {
       $consultaSQL = "SELECT * FROM clientes WHERE cedula LIKE '%" . $_POST['cedula'] . "%'";
+      
     } else {
       $consultaSQL = "SELECT * FROM clientes";
     }
+    
   
     $sentencia = $conexion->prepare($consultaSQL);
     $sentencia->execute();
   
     $clientes = $sentencia->fetchAll();
-  
+
   } catch(PDOException $error) {
     $error= $error->getMessage();
   }
   
-  $titulo = isset($_POST['cedula']) ? 'Cliente ' . $_POST['cedula'] . '' : '';
+  //Mostrar cedula y saldo
+  $titulo1 = isset($_POST['cedula']) ? 'Cliente: ' . $_POST['cedula'] . '' : '';
+  $titulo2 = isset($_POST['cedula']) ? 'Saldo: ' . $clientes[0]["saldo"]. '' : '';
+
   ?>
   
   <?php include "templates/header.php"; ?>
@@ -111,7 +116,7 @@ try {
               <!-- imagenes -->
 
                 <div class="container" >
-                  <h4 class="mt-3 text-center" display="none"><?= $titulo ?></h4>
+                  <h4 class="mt-2 text-center" display="none"><?= $titulo1 ?><br><?= $titulo2 ?></h4>
                     <div class="row row-cols-2 text-center" id="micontenedor" >
                       <div class="container-fluid">
                         <img class="btn-outline-secondary img-fluid img-thumbnail" onclick="toggleContenedor1()" id="abonar" src="img/image (1).png">
@@ -144,7 +149,6 @@ try {
                       <div class="col-xs-5">
                         <!--envio id del cliente-->
                         <form action="<?='abonar.php?id=' . escapar($fila["id"]) ?>" method="POST" autocomplete="off" class="form-inline" id="inputContainer">
-                        
                           <div class="form-group col-auto">
                             <p>
                               <input type="number" id="abonar" name="abonar" placeholder="Ingrese el valor abonar" class="form-control text-center" >
@@ -184,7 +188,7 @@ try {
                   <div id="cont-pagar" style="display: none;" class="container mt-2">
                     <div class="row">
                       <div class="col-xs-5">
-                        <form method="post" class="form-inline" id="inputContainer">
+                      <form action="<?='pagar.php?id=' . escapar($fila["id"]) ?>" method="POST" autocomplete="off" class="form-inline" id="inputContainer">
                           <div class="form-group col-auto">
                             <p>
                               <input type="text" id="pagar" name="pagar" placeholder="Ingrese el valor a pagar" class="form-control text-center" >

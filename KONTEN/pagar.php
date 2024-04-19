@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 // Obtener el valor ingresado por el usuario
 
-$abono = $_POST['abonar'];
+$pagar = $_POST['pagar'];
 
 // Consultar el saldo actual del cliente
 $id =$_GET["id"];
@@ -26,9 +26,9 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $saldo_actual = $row['saldo'];
 
-// Actualizar el saldo del cliente restando el valor ingresado
+// Actualizar el saldo del cliente cancelando el valor ingresado
 
-$nuevo_saldo = $saldo_actual - $abono;
+$nuevo_saldo = $saldo_actual = 0;
 
 $sql_update = "UPDATE clientes SET saldo = $nuevo_saldo WHERE id = '$id'"; 
 
@@ -53,7 +53,7 @@ if ($conn->query($sql_update) === TRUE) {
               <div class="row">
                 <div class="col-md-12"> 
                   <div class="alert alert-success text-center" role="alert">
-                    El valor se ha abonado correctamente
+                    El valor se ha cancelado correctamente
                   </div> 
                 </div>
                 <a class="btn btn-secondary" href="leer.php">Regresar</a>                

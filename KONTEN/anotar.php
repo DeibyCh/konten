@@ -26,7 +26,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $saldo_actual = $row['saldo'];
 
-// Actualizar el saldo del cliente sumando el saldo ingresado
+// Actualizar el saldo del cliente sumando el valor ingresado
 
 $nuevo_saldo = $saldo_actual + $anotar;
 
